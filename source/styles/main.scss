@@ -2,7 +2,7 @@ $color-1: #FFC12D;
 $color-2: #A47503;
 $color-3: #F9B718;
 $color-4: #2C3E50;
-$color-5: #A1B1BC;
+$color-5: #2C3E50;
 $color-6: #CFD2D3;
 $color-7: #97E411;
 $color-8: #558502;
@@ -68,65 +68,81 @@ body {
     }
 
     &.yellow {
+        background-color: $color-1;
 
         &::before {
             color: $color-2;
             content: "\f12a";
             font-family: 'FontAwesome';
             font-size: 24px;
-            background-color: $color-1; 
             border: $color-3 7px solid;
             border-radius: 50%;
+        }
+
+        a::before {
+            color: $color-2;
         }
     }
 
     &.green {
+        background-color: $color-7; 
 
         &::before {
             color: $color-8;
             content: "\f00c";
             font-family: 'FontAwesome';
             font-size: 24px;
-            background-color: $color-7; 
             border: $color-9 7px solid;
             border-radius: 50%;
+        }
+
+        a::before {
+            color: $color-8;
         }
     }
 
     &.red {
+        background-color: $color-10;
 
         &::before {
             color: $color-11;
             content: "\f00d";
             font-family: 'FontAwesome';
             font-size: 24px;
-            background-color: $color-10; 
             border: $color-12 7px solid;
             border-radius: 50%;
+        }
+
+        a::before {
+            color: $color-11;
         }
     }
 
     &.blue {
+        background-color: $color-13;
 
         &::before {
             color: $color-14;
             content: "\f0e7";
             font-family: 'FontAwesome';
             font-size: 24px;
-            background-color: $color-13; 
             border: $color-15 7px solid;
             border-radius: 50%;
+        }
+
+        a::before {
+            color: $color-14;
         }
     }
 
     &.purple {
+        background-color: $color-16;
 
         &::before {
             color: $color-17;
             content: "\f129";
             font-family: 'FontAwesome';
             font-size: 24px;
-            background-color: $color-16; 
             border: $color-18 7px solid;
             border-radius: 50%;
         }
@@ -134,13 +150,17 @@ body {
         div {
 
             p {
-                width: 96%;
+                width: 95%;
             }
         }
 
         a {
             right: 1%;
             margin-right: 7px;
+
+            &::before {
+                color: $color-17
+            }
         }
     }
 
