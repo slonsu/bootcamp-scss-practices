@@ -18,6 +18,12 @@ gulp.task('clean:html', () => {
     ]);
 });
 
+gulp.task('clean:images', () => {
+    return del([
+        'dist/images/*',
+    ]);
+});
+
 gulp.task('sass', function () {
   return gulp.src('source/styles/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -29,15 +35,30 @@ gulp.task('html', function(){
       .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('images', function() {
+    return gulp.src('source/images/**/*.*')
+        .pipe(gulp.dest('dist/images/'));
+});
+
 gulp.task('watch', function() {
     gulp.watch('source/*.html', (done) => {
         gulp.series(['clean:html', 'html'])(done);
     });
-    gulp.watch('source/styles/*.scss', (done) => {
+    gulp.watch('source/styles/**/*.scss', (done) => {
         gulp.series(['clean:css', 'sass'])(done);
+    });
+    gulp.watch('source/images/**/*.*', (done) => {
+        gulp.series(['clean:images', 'images'])(done);
     });
 });
 
-const init = ['clean:css', 'sass', 'clean:html', 'html']
+const init = [
+    'clean:css',
+    'sass',
+    'clean:html',
+    'html',
+    'clean:images',
+    'images'
+];
 
 gulp.task('default', gulp.series([...init,'watch']));
